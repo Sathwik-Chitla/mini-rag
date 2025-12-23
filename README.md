@@ -34,29 +34,43 @@ mini-rag/
 The project requires Python 3.9 or higher and Ollama installed on the local machine. Ollama
 is used to serve the local language model.
 Ollama can be installed from:
+
 https://ollama.com/
 
 
 ### Install Dependencies
 
 Install all required Python packages using:
+```text
+
 pip install -r requirements.txt
+```
 
 ### Pull the Local LLM (One-Time Setup)
 
 The system uses a local open source LLM served through Ollama. Pull the model once
 using:
+
+```text
 ollama pull phi3:mini
+```
+
 Ensure Ollama is running in the background:
+```text
 ollama run phi3:mini
+```
 
 ### Run the RAG System
 
 Execute the main script:
-python rag.py
-When run, the script retrieves relevant document chunks, displays the retrieved context, and
 
-## generates a grounded answer based only on that context.
+```text
+python rag.py
+```
+
+
+When run, the script retrieves relevant document chunks, displays the retrieved context, and
+generates a grounded answer based only on that context.
 
 ### Choosing Embedding Models
 
@@ -115,33 +129,45 @@ final result.
 
 The system was tested for quality using relevant questions formulated from the internal
 sources.
+
 **Retrieval relevance:**
 Highly ranked segments were invariably relevant, with similarity values ranging roughly from
 0.45 to 0.80.
+
 **Groundedness:**
 Answers were consistent to the retrieved information without any critical hallucinations.
+
 **Out of scope handling:**
 In the unsupported queries, the system properly refused to respond.
+
 **Answer quality:**
 Feedback was direct, to the point, and consistent with documentation terminology.
 
 ### Example:
 
 QUERY: What post-construction maintenance support is offered?
+
+
 Retrieved Context:
+
+
 [1] Source: doc3.md | Score: 0.
-## 4) Maintenance Program (Post-Construction Support)
-### Zero Cost Maintenance Program (Coverage Themes)
+4) Maintenance Program (Post-Construction Support)
+Zero Cost Maintenance Program (Coverage Themes)
 
 
 The brochure describes a “zero cost maintenance” program intended to keep the home in
 good condition post-handover.
+
+
 [2] Source: doc1.md | Score: 0.
 10) Maintenance
 
 - Post-handover maintenance support as part of Indecimal’s long-term care positioning.
+
+
 [3] Source: doc1.md | Score: 0.
-## 3) What We Strive For (Operating Principles)
+3) What We Strive For (Operating Principles)
 1. Smooth Construction Experience
 - Step-by-step support throughout the project.
 2. Best and Competitive Pricing
@@ -152,6 +178,8 @@ good condition post-handover.
 - Payments released only after verified completion.
 5. Transparent and Live Tracking
 - Clear agreements and real-time online project monitoring.
+
+
 Final Answer:
 The brochure describes a "zero cost maintenance" program intended to keep the home in
 good condition after handover, as part of Indecimal’selong-term care positioning. This
